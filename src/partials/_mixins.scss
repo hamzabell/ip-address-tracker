@@ -1,0 +1,45 @@
+@mixin for-device($device) {
+    @if $device == mobile {
+        @media screen and (max-width: 375px) {
+            @content;
+        }
+    } 
+
+    @if $device == desktop {
+        @media screen and (min-width: 1440px) {
+            @content;
+        }
+    }
+}
+
+
+@mixin header-text {
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 30px;
+}
+
+@mixin card-info-text {
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+}
+
+@mixin card-info-text-mb {
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: #2C2C2C;
+}
+
+@mixin card-sub-text {
+    font-weight: bold;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #D8D8D8;
+}
+
+@mixin input-placeholder-text {
+    font-weight: normal;
+    font-size: 18px;
+}

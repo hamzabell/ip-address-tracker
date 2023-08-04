@@ -1,0 +1,159 @@
+@use './partials' as *;
+
+:root {
+    font-size: 62.5%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6rem;
+    padding: 0;
+    margin: 0;
+    font-family: 'Rubik', sans-serif;
+}
+
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        width: 100%;
+        height: 30rem;
+
+        background: url(./assets/bg.svg);
+        background-size: cover;
+        background-repeat: no-repeat;
+
+        padding-top: 2.6rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+
+        @include for-device(desktop) {
+            height: 28rem;
+            padding-top: 3.3rem;
+        }
+
+        &-title {
+            @include header-text;
+            color: white;
+            text-transform: capitalize;
+        }
+
+        &-form {
+            display: flex;
+
+            &-input {
+                height: 5.8rem;
+                width: 26.8rem;
+
+                border-radius: 15px 0 0 15px;
+                border: none;
+                outline: none; 
+                padding: 1.8rem 2.4rem;
+                
+                &::placeholder {
+                    color: #D8D8D8;
+                }
+
+                @include input-placeholder-text;
+                @include for-device(desktop) {
+                    width: 49.7rem;
+                }
+
+                
+
+            }
+
+            &-submit {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: #000;
+                border-radius:  0 15px 15px 0;
+                border: none;
+                outline: none;
+                height: 5.8rem;
+                width: 5.8rem;
+                cursor: pointer;
+            }
+        }
+
+
+        
+    }
+
+    &__ip-details {
+        position: absolute;
+        background: white;
+        border-radius: 15px;
+        min-width: 32.7rem;
+        min-height: 29.4rem;
+        bottom: -60%;
+        padding: 2.4rem;
+        display: flex;
+        flex-direction: column;
+        row-gap: 2.4rem;
+        align-items: center;
+        z-index: 5;
+
+        @include for-device(desktop) {
+            flex-direction: row;
+            row-gap: 0;
+            justify-content: center;
+        }
+        
+         // left: -50%;
+
+         &-group {
+            display: flex;
+            flex-direction: column;
+            
+
+
+            @include for-device(desktop) {
+                height:  7.5rem;
+                row-gap: 1.3rem;
+                padding: 0 4.8rem;
+
+                &:where(:not(:last-child)) {
+                    border-right:  1px solid #979797;
+                }
+            }
+
+            &-title {
+                @include card-sub-text;
+                margin: 0;
+                text-align: center
+            }
+
+            &-info {
+                @include card-info-text-mb;
+                margin: 0;
+                text-align: center;
+
+            }
+         }
+
+        @include for-device(desktop) {
+            width: 111rem;
+            min-height: 16.1rem;
+            bottom: -30%;
+            padding: 3.7rem 3.2rem;
+        }
+    }
+
+    &__map {
+        background: #000;
+        width: 100%;
+        flex: 1;
+        z-index: 1;
+    }
+}
+
